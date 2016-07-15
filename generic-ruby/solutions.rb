@@ -44,16 +44,11 @@ module Solutions
   end
 end
 
-class Array
-  def sum
-    inject{ |sum,x| sum + x}
-  end
-end
 
 
 # helper methods
 def find_average(array)
-  total = array.sum
+  total = array.inject{ |sum,x| sum + x}
   average = total / array.length
 end
 
