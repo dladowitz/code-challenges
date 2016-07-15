@@ -32,6 +32,13 @@ module Solutions
   end
 
   def number_of_days_in_month_for(day)
+    days_in_month = [nil, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+    if day.month == 2 && Date.gregorian_leap?(day.year)
+      return 29
+    else
+      days_in_month[day.month]
+    end
   end
 
   def palindrome?(str)
