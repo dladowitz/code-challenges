@@ -29,6 +29,11 @@ module Solutions
   end
 
   def get_week_for(day)
+    week_day = day.wday
+    monday = day.prev_day(week_day - 1)
+    sunday = monday.next_day(6)
+
+    week = Week.new(monday, sunday)
   end
 
   def number_of_days_in_month_for(day)
@@ -37,7 +42,7 @@ module Solutions
     if day.month == 2 && Date.gregorian_leap?(day.year)
       return 29
     else
-      days_in_month[day.month]
+      days_in_month[day.month ]
     end
   end
 
