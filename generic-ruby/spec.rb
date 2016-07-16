@@ -142,17 +142,17 @@ TABLE
 
       expected_rows = [
         ['Meritocracy', 'Favoritism, ass-kissing, politics'],
-        # ['Healthy debates and collaboration', <<-DISLIKES.squish],
-        # Ego-driven rhetoric, drama and FUD to get one's way
-        # DISLIKES
-        # [<<-LIKES.squish, 'Formal meetings, endless debate'],
-        # Fluid communication, brief, ad-hoc discussions, white-boarding, and
-        # quick but informed decisions
-        # LIKES
-        # [<<-LIKES.squish, '']
-        # Clever and disruptive business ideas that solve real and immediate
-        # needs in a marketplace
-        # LIKES
+        ['Healthy debates and collaboration', <<-DISLIKES.squish],
+        Ego-driven rhetoric, drama and FUD to get one's way
+        DISLIKES
+        [<<-LIKES.squish, 'Formal meetings, endless debate'],
+        Fluid communication, brief, ad-hoc discussions, white-boarding, and
+        quick but informed decisions
+        LIKES
+        [<<-LIKES.squish, '']
+        Clever and disruptive business ideas that solve real and immediate
+        needs in a marketplace
+        LIKES
       ]
 
       cols = %i(likes dislikes)
@@ -168,39 +168,39 @@ TABLE
       end
     end
 
-#     describe "BONUS QUESTION! a five column table!" do
-#       let(:ascii_table) { <<TABLE }
-# +------------------------------------+-----------------------------------+
-# | id  | name   | is_silly | theme_song           | description           |
-# +------------------------------------+-----------------------------------+
-# | 42  | Adams  | T        | so long and thanks   |                       |
-# |     |        |          | for all the fish     |                       |
-# +------------------------------------+-----------------------------------+
-# | 151 | Rummy  | T        |                      | a deliciously drunken |
-# |     |        |          |                      | card game             |
-# +------------------------------------+-----------------------------------+
-# | 777 | Boeing | F        |                      | no snakes on this     |
-# |     |        |          |                      | plane                 |
-# +------------------------------------+-----------------------------------+
-# TABLE
-#
-#
-#       expected_rows = [
-#         ['42', 'Adams', 'T', 'so long and thanks for all the fish', ''],
-#         ['151', 'Rummy', 'T', '', 'a deliciously drunken card game'],
-#         ['777', 'Boeing', 'F', '', 'no snakes on this plane']
-#       ]
-#
-#       cols = %i(id name is_silly theme_song description)
-#
-#       expected_rows.each.with_index do |data, i|
-#         cols.each do |col|
-#           it %(#{col} for row ##{i + 1} should equal "#{data[cols.index(col)]}") do
-#             assert_equal data[cols.index(col)],
-#               parse_ascii_table(ascii_table, cols: cols.size)[i].public_send(col)
-#           end
-#         end
-#       end
-#     end
+    describe "BONUS QUESTION! a five column table!" do
+      let(:ascii_table) { <<TABLE }
++------------------------------------+-----------------------------------+
+| id  | name   | is_silly | theme_song           | description           |
++------------------------------------+-----------------------------------+
+| 42  | Adams  | T        | so long and thanks   |                       |
+|     |        |          | for all the fish     |                       |
++------------------------------------+-----------------------------------+
+| 151 | Rummy  | T        |                      | a deliciously drunken |
+|     |        |          |                      | card game             |
++------------------------------------+-----------------------------------+
+| 777 | Boeing | F        |                      | no snakes on this     |
+|     |        |          |                      | plane                 |
++------------------------------------+-----------------------------------+
+TABLE
+
+
+      expected_rows = [
+        ['42', 'Adams', 'T', 'so long and thanks for all the fish', ''],
+        ['151', 'Rummy', 'T', '', 'a deliciously drunken card game'],
+        ['777', 'Boeing', 'F', '', 'no snakes on this plane']
+      ]
+
+      cols = %i(id name is_silly theme_song description)
+
+      expected_rows.each.with_index do |data, i|
+        cols.each do |col|
+          it %(#{col} for row ##{i + 1} should equal "#{data[cols.index(col)]}") do
+            assert_equal data[cols.index(col)],
+              parse_ascii_table(ascii_table, cols: cols.size)[i].public_send(col)
+          end
+        end
+      end
+    end
   end
 end
