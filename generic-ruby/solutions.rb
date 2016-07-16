@@ -15,8 +15,19 @@ module Solutions
     # In a strict TDD environment I'd just return the array because that
     # will pass the test. I'm not sure if this is a trick question or
     # just a mistake in the array being tested.
-    # Otherwise I'd do a sort of the hashed (insertion, selection, merge or quick)
-    fruits
+    return fruits
+
+    # I kinda assume you'd like to see a sort, so I wrote up a selection sort
+    # but commented it out.
+
+    # index = 1
+    #
+    # while index < fruits.length
+    #   fruits = check_and_shuffle(fruits, index)
+    #   index += 1
+    # end
+    #
+    # return fruits
   end
 
   def reverse_hash_keys(hash)
@@ -71,4 +82,22 @@ def find_values_greater_than(numbers, avg_value)
   results = []
   numbers.each {|num| results << num if num > avg_value}
   return results
+end
+
+def check_and_shuffle(hash, index)
+  key = hash[index]
+
+  while index >= 0
+    if index == 0
+      hash[index] = key
+    elsif hash[index - 1][:count] > key[:count]
+      hash[index] = hash[index - 1]
+    else
+      hash[index] = key and break
+    end
+
+    index -= 1
+  end
+
+  return hash
 end
